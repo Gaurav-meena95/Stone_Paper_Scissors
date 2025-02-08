@@ -7,7 +7,7 @@
         <div class="main">
             <h1>STONE PAPER SISOR</h1>
             <button onclick="
-            computerChoiceGenreter();
+            let computerCHoice=computerChoiceGenreter();
             
             let resultMsg;
                 if (computerCHoice==='STONE'){
@@ -17,12 +17,13 @@
                 }else{
                     resultMsg='You win'
                 }
-                alert(` ###you --STONE --computer=${computerCHoice}-----YOURCHOICE==${resultMsg}`)
+                alert(` you --STONE --computer=${computerCHoice}-----YOURCHOICE==${resultMsg}`)
 
             ">STONE</button>
-
+ 
             <button onclick="
-            computerChoiceGenreter();
+            computerCHoice=computerChoiceGenreter();
+
 
                 if (computerCHoice==='PAPER'){
                     resultMsg=`it's A tie Guys`
@@ -36,8 +37,7 @@
             ">PAPER</button>
 
             <button onclick="
-            computerChoiceGenreter();
-
+            computerCHoice=computerChoiceGenreter();
                 if (computerCHoice==='SICSSOR'){
                     resultMsg=`it's A tie Guys`
                 }else if (computerCHoice==='STONE'){
@@ -50,15 +50,14 @@
         </div>
 
         <script>
-            let computerCHoice;
             function computerChoiceGenreter(){
                 let randomNumber=Math.random()*3;
                 if (randomNumber>0 && randomNumber<=1){
-                    computerCHoice='STONE'
+                    return 'STONE'
                 }else if (randomNumber>1 && randomNumber<=2){
-                    computerCHoice='PAPER'
+                    return 'PAPER'
                 }else{
-                    computerCHoice='SICSSOR'
+                    return 'SICSSOR'
                 }
             }
         </script>
