@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Stone paper sisor Game</title>
+        <title>Stone paper Scissors Game</title>
     </head>
     <body>
         <div class="main">
             <h1>STONE PAPER SISOR</h1>
-            <button>STONE</button>
-            <button>PAPER</button>
-            <button>SISOR</button>
+            <button onclick="
+            let randomNumber=Math.random()*3;
+            let computerCHoice;
+            if (randomNumber>0 && randomNumber<=1){
+                computerCHoice='STONE'
+            }else if (randomNumber>1 && randomNumber<=2){
+                computerCHoice='PAPER'
+            }else{
+                computerCHoice='SICSSOR'
+            }
+            let resultMsg;
+            if (computerCHoice==='STONE'){
+                resultMsg=`it's A tie Guys`
+            }else if (computerCHoice==='PAPER'){
+                resultMsg='computer WIN'
+            }else{
+                resultMsg='You win'
+            }
+            alert(` ### you --STONE --computer=${computerCHoice}-----YOURCHOICE==${resultMsg}`)
+
+
+            ">STONE</button>
+            <button onclick="
+            let randomNumber=Math.random()*3;
+            let computerCHoice;
+            if (randomNumber>0 && randomNumber<=1){
+                computerCHoice='STONE'
+            }else if (randomNumber>1 && randomNumber<=2){
+                computerCHoice='PAPER'
+            }else{
+                computerCHoice='SICSSOR'
+            }
+            console.log(`the computerCHoice id ${computerCHoice}`)
+            let resultMsg;
+            if (computerCHoice==='PAPER'){
+                resultMsg=`it's A tie Guys`
+            }else if (computerCHoice==='SICSSOR'){
+                resultMsg='computer WIN'
+            }else{
+                resultMsg='You win'
+            }
+            alert(` ### you --PAPER --computer=${computerCHoice}-----YOURCHOICE==${resultMsg}`)
+
+            ">PAPER</button>
+
+            <button onclick="
+            let randomNumber=Math.random()*3;
+            let computerCHoice;
+            if (randomNumber>0 && randomNumber<=1){
+                computerCHoice='STONE'
+            }else if (randomNumber>1 && randomNumber<=2){
+                computerCHoice='PAPER'
+            }else{
+                computerCHoice='SICSSOR'
+            }
+            console.log(`the computerCHoice id ${computerCHoice}`)
+            let resultMsg;
+            if (computerCHoice==='SICSSOR'){
+                resultMsg=`it's A tie Guys`
+            }else if (computerCHoice==='STONE'){
+                resultMsg='computer WIN'
+            }else{
+                resultMsg='You win'
+            }
+            alert(` ### you --SICSSOR --computer=${computerCHoice}-----YOURCHOICE==${resultMsg}`)
+            ">SICSSOR</button>
         </div>
     </body>
 </html>
+
+
+
