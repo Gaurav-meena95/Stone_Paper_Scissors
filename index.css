@@ -1,0 +1,27 @@
+body{
+    background-color: cadetblue;
+    margin: 0;
+    padding: auto;
+}
+div{
+    text-align: center;
+}
+.stone{
+    height: 300px;
+    width: 300px;
+}
+
+.paper{
+    height: 300px;
+    width: 300px;
+
+
+}
+.sicssor{
+    height: 300px;
+    width: 300px;
+
+}
+button{
+    border-radius: 10%;
+}

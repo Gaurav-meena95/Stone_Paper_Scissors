@@ -11,7 +11,7 @@ function resetSCore(){
 
 score.displayScore=function(){
 return `Score:${score.win} tie:${score.tie} Lsot:${score.lost}`}
-finalOutput(); 
+finalOutput();
 };
 
 
