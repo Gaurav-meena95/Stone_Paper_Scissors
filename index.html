@@ -3,6 +3,7 @@
     <head>
         <title>Stone paper Scissors Game</title>
     </head>
+    <link rel="stylesheet" href="index.css">
     <body>
         <div class="main">
             <h1>STONE PAPER SISOR</h1>
@@ -10,19 +11,19 @@
             let computerChoice=computerChoiceGenreter();
             let resultMsg=getResult('STONE',computerChoice);
             finalOutput('STONE',computerChoice,resultMsg);
-            ">STONE</button>
+            "><img src="imges/stone.png" alt="stone" class="stone"></button>
  
             <button onclick="
             computerChoice=computerChoiceGenreter();
             resultMsg=getResult('PAPER',computerChoice);
             finalOutput('PAPER',computerChoice,resultMsg);
-            ">PAPER</button>
+            "><img src="imges/paper.webp" alt="paper" class="paper"></button>
 
             <button onclick="
             computerChoice=computerChoiceGenreter();
             resultMsg=getResult('SICSSOR',computerChoice);
             finalOutput('SICSSOR',computerChoice,resultMsg);
-            ">SICSSOR</button>
+            "><img src="imges/pngwing.com.png" alt="SICSSOR" class="sicssor"></button>
             <button onclick="localStorage.clear()
             resetSCore();
             ">RESET</button>
@@ -31,83 +32,8 @@
         <h3 class="computer-move"></h3>
         <h3 class="result"></h3>
         <h3 class="score"></h3>
-        <script>
-            let scoreStr=localStorage.getItem('Score');
-            let score;
-            resetSCore(scoreStr);
-            function resetSCore(){
-                score=scoreStr ? JSON.parse(scoreStr):{
-                    win:0,
-                    tie:0,
-                    lost:0,
-                }
-            }
+        <script src="index.js"></script>
 
-
-            score.displayScore=function(){
-            return `Mathes Win :${score.win} ---tie:${score.tie}---- Lsot:${score.lost}`
-        };
-
-
-            function computerChoiceGenreter(){
-                let randomNumber=Math.random()*3;
-                if (randomNumber>0 && randomNumber<=1){
-                    return 'STONE'
-                }else if (randomNumber>1 && randomNumber<=2){
-                    return 'PAPER'
-                }else{
-                    return 'SICSSOR'
-                }
-            }
-            function getResult(UserMove,computerMove){
-                if (UserMove==='STONE'){
-                    if (computerMove==='STONE'){
-                        score.tie++
-                        return `it's A tie Guys`
-                    }else if (computerMove==='PAPER'){
-                        score.lost++
-                        return 'computer WIN'
-                    }else{
-                        score.win++;
-                        return 'You win'
-                    }
-                }else if (UserMove==='PAPER'){
-                    if (computerMove==='PAPER'){
-                        score.tie++
-                        return `it's A tie Guys`
-                    }else if (computerMove==='SICSSOR'){
-                        score.lost++
-                        return 'computer WIN'
-                    }else{
-                        score.win++;
-                        return 'You win'
-                    }
-
-                }else{
-                    if (computerMove==='SICSSOR'){
-                        score.tie++
-                        return `it's A tie Guys`
-                    }else if (computerMove==='STONE'){
-                        score.lost++
-                        return 'computer WIN'
-                    }else{
-                        score.win++;
-                        return 'You win'
-                    }
-
-                }
-            }
-            function finalOutput(UserMove,computerMove,resultMsg){
-                localStorage.setItem('Score',JSON.stringify(score))
-                document.querySelector('.user-move').innerText=`User: ${UserMove}`;
-                document.querySelector('.computer-move').innerText=`computer: ${computerMove}`;
-                document.querySelector('.result').innerText=resultMsg ;
-                document.querySelector('.score').innerText=score.displayScore() ;
-
-
-            }
-
-        </script>
     </body> 
 </html>
 
