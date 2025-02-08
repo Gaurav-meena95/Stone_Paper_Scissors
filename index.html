@@ -26,6 +26,14 @@
         </div>
 
         <script>
+
+            let score={
+                win:0,
+                tie:0,
+                lost:0
+            };
+
+
             function computerChoiceGenreter(){
                 let randomNumber=Math.random()*3;
                 if (randomNumber>0 && randomNumber<=1){
@@ -39,34 +47,50 @@
             function getResult(UserMove,computerMove){
                 if (UserMove==='STONE'){
                     if (computerMove==='STONE'){
+                        score.tie++
                         return `it's A tie Guys`
                     }else if (computerMove==='PAPER'){
+                        score.lost++
                         return 'computer WIN'
                     }else{
+                        score.win++;
                         return 'You win'
                     }
                 }else if (UserMove==='PAPER'){
                     if (computerMove==='PAPER'){
+                        score.tie++
                         return `it's A tie Guys`
                     }else if (computerMove==='SICSSOR'){
+                        score.lost++
                         return 'computer WIN'
                     }else{
+                        score.win++;
                         return 'You win'
                     }
 
                 }else{
                     if (computerMove==='SICSSOR'){
+                        score.tie++
                         return `it's A tie Guys`
                     }else if (computerMove==='STONE'){
+                        score.lost++
                         return 'computer WIN'
                     }else{
+                        score.win++;
                         return 'You win'
                     }
 
                 }
             }
             function finalOutput(UserMove,computerMove,resultMsg){
-                alert(` You have choosen ${UserMove} and Computer Chossen ${computerMove} and the Final output is ${resultMsg}`)
+                alert(` 
+                User: ${UserMove}---
+                Computer : ${computerMove}-- 
+                result: ${resultMsg}--
+                Won:${score.win}
+                tie:${score.tie}
+                Lsot:${score.lost}
+                `)
 
 
             }
