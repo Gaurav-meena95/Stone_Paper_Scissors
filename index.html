@@ -23,19 +23,30 @@
             resultMsg=getResult('SICSSOR',computerChoice);
             finalOutput('SICSSOR',computerChoice,resultMsg);
             ">SICSSOR</button>
+            <button onclick="localStorage.clear()
+            resetSCore();
+            ">RESET</button>
         </div>
-
+        <h3 class="user-move"></h3>
+        <h3 class="computer-move"></h3>
+        <h3 class="result"></h3>
+        <h3 class="score"></h3>
         <script>
-
-            let score={
-                win:0,
-                tie:0,
-                lost:0,
-                displayScore:function(){
-                    return `Mathes Win :${score.win} ---tie:${score.tie}---- Lsot:${score.lost}`
-                
+            let scoreStr=localStorage.getItem('Score');
+            let score;
+            resetSCore(scoreStr);
+            function resetSCore(){
+                score=scoreStr ? JSON.parse(scoreStr):{
+                    win:0,
+                    tie:0,
+                    lost:0,
                 }
-            };
+            }
+
+
+            score.displayScore=function(){
+            return `Mathes Win :${score.win} ---tie:${score.tie}---- Lsot:${score.lost}`
+        };
 
 
             function computerChoiceGenreter(){
@@ -87,16 +98,17 @@
                 }
             }
             function finalOutput(UserMove,computerMove,resultMsg){
-                alert(` 
-                User: ${UserMove}---
-                Computer : ${computerMove}-- 
-                result: ${resultMsg}--
-               ${score.displayScore()}`)
+                localStorage.setItem('Score',JSON.stringify(score))
+                document.querySelector('.user-move').innerText=`User: ${UserMove}`;
+                document.querySelector('.computer-move').innerText=`computer: ${computerMove}`;
+                document.querySelector('.result').innerText=resultMsg ;
+                document.querySelector('.score').innerText=score.displayScore() ;
 
 
             }
+
         </script>
-    </body>
+    </body> 
 </html>
 
 
