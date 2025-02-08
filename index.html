@@ -7,45 +7,21 @@
         <div class="main">
             <h1>STONE PAPER SISOR</h1>
             <button onclick="
-            let computerCHoice=computerChoiceGenreter();
-            
-            let resultMsg;
-                if (computerCHoice==='STONE'){
-                    resultMsg=`it's A tie Guys`
-                }else if (computerCHoice==='PAPER'){
-                    resultMsg='computer WIN'
-                }else{
-                    resultMsg='You win'
-                }
-                alert(` you --STONE --computer=${computerCHoice}-----YOURCHOICE==${resultMsg}`)
-
+            let computerChoice=computerChoiceGenreter();
+            let resultMsg=getResult('STONE',computerChoice);
+            finalOutput('STONE',computerChoice,resultMsg);
             ">STONE</button>
  
             <button onclick="
-            computerCHoice=computerChoiceGenreter();
-
-
-                if (computerCHoice==='PAPER'){
-                    resultMsg=`it's A tie Guys`
-                }else if (computerCHoice==='SICSSOR'){
-                    resultMsg='computer WIN'
-                }else{
-                    resultMsg='You win'
-                }
-                alert(`  you --PAPER --computer=${computerCHoice}-----YOURCHOICE==${resultMsg}`)
-
+            computerChoice=computerChoiceGenreter();
+            resultMsg=getResult('PAPER',computerChoice);
+            finalOutput('PAPER',computerChoice,resultMsg);
             ">PAPER</button>
 
             <button onclick="
-            computerCHoice=computerChoiceGenreter();
-                if (computerCHoice==='SICSSOR'){
-                    resultMsg=`it's A tie Guys`
-                }else if (computerCHoice==='STONE'){
-                    resultMsg='computer WIN'
-                }else{
-                    resultMsg='You win'
-                }
-                alert(`  you --SICSSOR --computer=${computerCHoice}-----YOURCHOICE==${resultMsg}`)
+            computerChoice=computerChoiceGenreter();
+            resultMsg=getResult('SICSSOR',computerChoice);
+            finalOutput('SICSSOR',computerChoice,resultMsg);
             ">SICSSOR</button>
         </div>
 
@@ -60,9 +36,44 @@
                     return 'SICSSOR'
                 }
             }
+            function getResult(UserMove,computerMove){
+                if (UserMove==='STONE'){
+                    if (computerMove==='STONE'){
+                        return `it's A tie Guys`
+                    }else if (computerMove==='PAPER'){
+                        return 'computer WIN'
+                    }else{
+                        return 'You win'
+                    }
+                }else if (UserMove==='PAPER'){
+                    if (computerMove==='PAPER'){
+                        return `it's A tie Guys`
+                    }else if (computerMove==='SICSSOR'){
+                        return 'computer WIN'
+                    }else{
+                        return 'You win'
+                    }
+
+                }else{
+                    if (computerMove==='SICSSOR'){
+                        return `it's A tie Guys`
+                    }else if (computerMove==='STONE'){
+                        return 'computer WIN'
+                    }else{
+                        return 'You win'
+                    }
+
+                }
+            }
+            function finalOutput(UserMove,computerMove,resultMsg){
+                alert(` You have choosen ${UserMove} and Computer Chossen ${computerMove} and the Final output is ${resultMsg}`)
+
+
+            }
         </script>
     </body>
 </html>
+
 
 
 
