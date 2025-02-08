@@ -30,7 +30,11 @@
             let score={
                 win:0,
                 tie:0,
-                lost:0
+                lost:0,
+                displayScore:function(){
+                    return `Mathes Win :${score.win} ---tie:${score.tie}---- Lsot:${score.lost}`
+                
+                }
             };
 
 
@@ -87,10 +91,7 @@
                 User: ${UserMove}---
                 Computer : ${computerMove}-- 
                 result: ${resultMsg}--
-                Won:${score.win}
-                tie:${score.tie}
-                Lsot:${score.lost}
-                `)
+               ${score.displayScore()}`)
 
 
             }
