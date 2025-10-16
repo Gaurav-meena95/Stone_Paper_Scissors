@@ -10,7 +10,7 @@ function resetSCore(){
     }
 
 score.displayScore=function(){
-return `Score:${score.win} tie:${score.tie} Lsot:${score.lost}`}
+return `Score:${score.win} Tie:${score.tie} Lost:${score.lost}`}
 finalOutput(); 
 };
 
@@ -23,43 +23,43 @@ function computerChoiceGenreter(){
     }else if (randomNumber>1 && randomNumber<=2){
         return 'PAPER'
     }else{
-        return 'SICSSOR'
+        return 'SCISSOR'
     }
 }
 function getResult(UserMove,computerMove){
     if (UserMove==='STONE'){
         if (computerMove==='STONE'){
             score.tie++
-            return `it's A tie Guys`
+            return `It's a Tie!`
         }else if (computerMove==='PAPER'){
             score.lost++
-            return 'computer WIN'
+            return 'Computer Wins!'
         }else{
             score.win++;
-            return 'You win'
+            return 'You Win!'
         }
     }else if (UserMove==='PAPER'){
         if (computerMove==='PAPER'){
             score.tie++
-            return `it's A tie Guys`
-        }else if (computerMove==='SICSSOR'){
+            return `It's a Tie!`
+        }else if (computerMove==='SCISSOR'){
             score.lost++
-            return 'computer WIN'
+            return 'Computer Wins!'
         }else{
             score.win++;
-            return 'You win'
+            return 'You Win!'
         }
 
     }else{
-        if (computerMove==='SICSSOR'){
+        if (computerMove==='SCISSOR'){
             score.tie++
-            return `it's A tie Guys`
+            return `It's a Tie!`
         }else if (computerMove==='STONE'){
             score.lost++
-            return 'computer WIN'
+            return 'Computer Wins!'
         }else{
             score.win++;
-            return 'You win'
+            return 'You Win!'
         }
 
     }
@@ -69,9 +69,9 @@ function finalOutput(UserMove,computerMove,resultMsg){
     document.querySelector('.user-move').innerText=
     UserMove ? `User: ${UserMove}`: 'User:-----';
     document.querySelector('.computer-move').innerText=
-    computerMove ?`computer: ${computerMove}`:'computer:-----';
+    computerMove ?`Computer: ${computerMove}`:'Computer:-----';
     document.querySelector('.result').innerText=
-    resultMsg ?resultMsg:'result :-----' ;
+    resultMsg ?resultMsg:'Result :-----' ;
     document.querySelector('.score').innerText=score.displayScore() ;
 
 
