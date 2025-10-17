@@ -6,42 +6,68 @@
     <link rel="stylesheet" href="index.css">
     <body>
         <div class="main">
-            <h1>STONE PAPER SCISSORS</h1>
-            <button onclick="
-            let computerChoice=computerChoiceGenreter();
-            let resultMsg=getResult('STONE',computerChoice);
-            finalOutput('STONE',computerChoice,resultMsg);
-            "><img src="imges/stone.png" alt="stone" class="stone"></button>
- 
-            <button onclick="
-            computerChoice=computerChoiceGenreter();
-            resultMsg=getResult('PAPER',computerChoice);
-            finalOutput('PAPER',computerChoice,resultMsg);
-            "><img src="imges/paper.webp" alt="paper" class="paper"></button>
+            <h1>Stone &nbsp;Paper &nbsp;Scissors</h1>
+            <div class="option-container">
+                <button onclick="
+                    let computerChoice=computerChoiceGenerator();
+                    let resultMsg=getResult('STONE',computerChoice);
+                    finalOutput('STONE',computerChoice,resultMsg);
+                    "
+                >
+                    <img src="imges/stone.png" alt="stone" class="option">
+                </button>
+    
+                <button onclick="
+                    computerChoice=computerChoiceGenerator();
+                    resultMsg=getResult('PAPER',computerChoice);
+                    finalOutput('PAPER',computerChoice,resultMsg);
+                    "
+                >
+                    <img src="imges/paper.webp" alt="paper" class="option">
+                </button>
 
-            <button onclick="
-            computerChoice=computerChoiceGenreter();
-            resultMsg=getResult('SCISSORS',computerChoice);
-            finalOutput('SCISSORS',computerChoice,resultMsg);
-            "><img src="imges/pngwing.com.png" alt="SICSSOR" class="sicssor"></button>
+                <button onclick="
+                    computerChoice=computerChoiceGenerator();
+                    resultMsg=getResult('SCISSORS',computerChoice);
+                    finalOutput('SCISSORS',computerChoice,resultMsg);
+                    "
+                >
+                    <img src="imges/pngwing.com.png" alt="SICSSOR" class="option">
+                </button>
+            </div>
         </div>
+
         <div class="answer">
-            <h3 class="user-move"></h3>
-            <h3 class="computer-move"></h3>
-            <h3 class="result"></h3>
-            <h3 class="score"></h3>
-            <button onclick="localStorage.clear()
-            resetSCore();
-            "><img src="imges/rest.webp" alt="reset button" class="reset"></button>
+            <div class="move-container">
+                <p class="user-move"></p>
+                <p class="computer-move"></p>
+            </div>
+
+            <div class="result-container">
+                <p class="result"></p>
+                <table>
+                    <tr>
+                        <th>won</th>
+                        <th>lost</th>
+                        <th>tie</th>
+                    </tr>
+                    <tr>
+                        <td id="won"></td>
+                        <td id="lost"></td>
+                        <td id="tie"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <button onclick="
+                resetScore();
+                "
+            >
+                <img src="imges/rest.webp" alt="reset button" class="reset">
+            </button>
         </div>  
 
-
-
-
-
-
         <script src="index.js"></script>
-
     </body> 
 </html>
 
