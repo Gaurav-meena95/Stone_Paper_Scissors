@@ -1,79 +1,78 @@
-
-let scoreStr=localStorage.getItem('Score');
-let score;
-resetSCore(scoreStr);
-function resetSCore(){
-    score=scoreStr ? JSON.parse(scoreStr):{
-        win:0,
-        tie:0,
-        lost:0,
-    }
-
-score.displayScore=function(){
-return `Score:${score.win} Tie:${score.tie} Lost:${score.lost}`}
-finalOutput(); 
+let score = {
+    won: 0,
+    lost: 0,
+    tie: 0,
 };
 
+resetScore();
 
+function resetScore() {
+    score = {
+        won : 0,
+        lost : 0,
+        tie : 0,
+    }
+    finalOutput();
+};
 
-function computerChoiceGenreter(){
-    let randomNumber=Math.random()*3;
-    if (randomNumber>0 && randomNumber<=1){
+function computerChoiceGenerator() {
+    let randomNumber = Math.random() * 3;
+    if (randomNumber > 0 && randomNumber <= 1) {
         return 'STONE'
-    }else if (randomNumber>1 && randomNumber<=2){
+    }
+    else if (randomNumber > 1 && randomNumber <= 2) {
         return 'PAPER'
-    }else{
+    }
+    else {
         return 'SCISSOR'
     }
 }
-function getResult(UserMove,computerMove){
-    if (UserMove==='STONE'){
-        if (computerMove==='STONE'){
-            score.tie++
-            return `It's a Tie!`
-        }else if (computerMove==='PAPER'){
-            score.lost++
-            return 'Computer Wins!'
-        }else{
-            score.win++;
-            return 'You Win!'
-        }
-    }else if (UserMove==='PAPER'){
-        if (computerMove==='PAPER'){
-            score.tie++
-            return `It's a Tie!`
-        }else if (computerMove==='SCISSOR'){
-            score.lost++
-            return 'Computer Wins!'
-        }else{
-            score.win++;
-            return 'You Win!'
-        }
 
-    }else{
-        if (computerMove==='SCISSOR'){
-            score.tie++
-            return `It's a Tie!`
-        }else if (computerMove==='STONE'){
+function getResult(userMove, computerMove) {
+    if(userMove === computerMove) {
+        score.tie++;
+        return `It's a Tie!`
+    }
+    if (userMove === 'STONE') {
+        if (computerMove === 'PAPER') {
             score.lost++
             return 'Computer Wins!'
-        }else{
-            score.win++;
+        }
+        else {
+            score.won++;
             return 'You Win!'
         }
-
+    }
+    else if(userMove === 'PAPER') {
+        if(computerMove === 'SCISSOR') {
+            score.lost++
+            return 'Computer Wins!'
+        }
+        else {
+            score.won++;
+            return 'You Win!'
+        }
+    }
+    else {
+        if(computerMove === 'STONE') {
+            score.lost++
+            return 'Computer Wins!'
+        }
+        else {
+            score.won++;
+            return 'You Win!'
+        }
     }
 }
-function finalOutput(UserMove,computerMove,resultMsg){
-    localStorage.setItem('Score',JSON.stringify(score))
-    document.querySelector('.user-move').innerText=
-    UserMove ? `User: ${UserMove}`: 'User:-----';
-    document.querySelector('.computer-move').innerText=
-    computerMove ?`Computer: ${computerMove}`:'Computer:-----';
-    document.querySelector('.result').innerText=
-    resultMsg ?resultMsg:'Result :-----' ;
-    document.querySelector('.score').innerText=score.displayScore() ;
 
+function finalOutput(userMove, computerMove, resultMsg) {
+    document.querySelector('.user-move').innerHTML = userMove ? `<p style="padding:10px; border: 1px solid #e1e1e1; border-radius:10px;">User</p> ${userMove}`: '<p style="padding:10px; border: 1px solid #e1e1e1; border-radius:10px;">User</p>';
+    document.querySelector('.computer-move').innerHTML= computerMove ?`${computerMove} <p style="padding:10px; border: 1px solid #e1e1e1; border-radius:10px;">Computer</p>`:' <p style="padding:10px; border: 1px solid #e1e1e1; border-radius:10px;">Computer</p>';
 
+    document.querySelector('.result').innerHTML = resultMsg ? resultMsg : "";
+
+    document.querySelector('#won').innerText = score.won;
+    document.querySelector('#lost').innerText = score.lost;
+    document.querySelector('#tie').innerText = score.tie;
 }
 
